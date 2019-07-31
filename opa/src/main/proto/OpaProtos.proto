@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.market.opa;
+
+option java_package = "com.market.proto.opa";
+option java_multiple_files = true;
+
+
+message OpaRequest {
+    string pattern = 1;
+}
+
+message OpaResponse {
+    string origin = 1;
+}
+
+service OpaService {
+    rpc getOpaResponses(stream OpaRequest) returns (stream OpaResponse) {}
+}
